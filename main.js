@@ -22,7 +22,14 @@ const btnClick = () => {
       wind_s.style.display = "block";
       city.innerHTML=json.name
       temp.innerHTML=`${json.main.temp} °C`
-      city.innerHTML=json.clouds.all
+      wind.innerHTML=json.clouds.all
       img.src=`https://openweathermap.org/img/wn/${json.weather[0].icon}@2x.png`
     }).catch(err=>alert("wrong city name"));
 };
+
+
+document.body.addEventListener("keypress",(e)=>{
+    if(e.key==="Enter"){
+        btnClick()
+    }
+})
